@@ -1,26 +1,19 @@
 <template>
-	<div class="common-layout">
-		<el-container>
-			<el-header>
-				<div>模拟问卷</div>
-			</el-header>
+	<div>
+		<el-container direction="vertical">
+			<Header></Header>
 			<el-container>
-				<el-aside width="200px">
-					<el-menu router default-active="/survey">
-						<el-menu-item index="/survey">
-							<span>问卷列表</span>
-						</el-menu-item>
-						<el-menu-item index="/trash">
-							<span>回收站</span>
-						</el-menu-item>
-					</el-menu>
-				</el-aside>
-				<el-container>
-					<el-main> <router-view /> </el-main>
-				</el-container>
+				<Side></Side>
+				<Main></Main>
 			</el-container>
 		</el-container>
 	</div>
 </template>
+
+<script lang="ts" setup>
+import Header from './Header/index.vue'
+import Side from './Side/index.vue'
+import Main from './Main/index.vue'
+</script>
 
 <style scoped></style>

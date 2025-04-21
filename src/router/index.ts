@@ -5,7 +5,20 @@ const routes: RouteRecordRaw[] = [
 	{
 		path: '/',
 		component: Layout,
-		children: []
+		children: [
+			{
+				path: 'dashboard',
+				component: () => import('@/page/dashboard/index.vue')
+			},
+			{
+				path: 'survey',
+				component: () => import('@/page/survey/index.vue')
+			},
+			{
+				path: 'survey_trash',
+				component: () => import('@/page/survey_trash/index.vue')
+			}
+		]
 	}
 ]
 

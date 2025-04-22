@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import Layout from '../Layout/index.vue'
+import Layout from '@/Layout/index.vue'
+
 const routes: RouteRecordRaw[] = [
 	{
 		path: '/',
@@ -15,8 +16,11 @@ const routes: RouteRecordRaw[] = [
 				component: () => import('@/page/survey/index.vue')
 			},
 			{
-				path: 'survey_trash',
-				component: () => import('@/page/survey_trash/index.vue')
+				path: 'trash',
+				component: () => import('@/page/trash/index.vue'),
+				meta:{
+					permission:'trash'
+				}
 			}
 		]
 	}
@@ -28,4 +32,5 @@ const router = createRouter({
 	scrollBehavior: () => ({ left: 0, top: 0 })
 })
 
-export default router
+
+export { router }

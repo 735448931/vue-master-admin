@@ -2,10 +2,7 @@
 	<el-pagination
 		v-model:current-page="currentPage4"
 		v-model:page-size="pageSize4"
-		:page-sizes="[100, 200, 300, 400]"
-		:size="size"
-		:disabled="disabled"
-		:background="background"
+		:page-sizes="[10, 20, 50, 100]"
 		layout="total, sizes, prev, pager, next, jumper"
 		:total="400"
 		@size-change="handleSizeChange"
@@ -15,13 +12,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { ComponentSize } from 'element-plus'
 
 const currentPage4 = ref(4)
 const pageSize4 = ref(100)
-const size = ref<ComponentSize>('default')
-const background = ref(false)
-const disabled = ref(false)
+
 
 const handleSizeChange = (val: number) => {
 	console.log(`${val} items per page`)

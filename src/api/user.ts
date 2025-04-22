@@ -1,4 +1,6 @@
 // 定义基础用户接口
+
+import request from '@/utils/request'
 interface BaseUser {
 	username: string
 	password: string
@@ -16,14 +18,15 @@ interface BaseUser {
 
 // 扩展带数据库元数据的接口
 interface User extends BaseUser {
-	_id: string 
+	_id: string
 	createdAt?: Date | string
 	updatedAt?: Date | string
 }
-
 
 // 创建用户
 type CreateUser = Omit<User, '_id' | 'createdAt' | 'updatedAt'>
 
 // 更新用户
 type UpdateUser = Partial<CreateUser>
+
+export const loginApi = async () => {}

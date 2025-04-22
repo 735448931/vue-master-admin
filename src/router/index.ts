@@ -2,35 +2,46 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import Layout from '@/Layout/index.vue'
 
-const routes: RouteRecordRaw[] = [
+export const staticRoutes: RouteRecordRaw[] = [
+	{
+		path: '/login',
+		name: 'Login',
+		component: () => import('@/page/login/index.vue')
+	},
 	{
 		path: '/',
 		component: Layout,
+		name: 'Layout',
 		children: [
 			{
 				path: 'dashboard',
 				component: () => import('@/page/dashboard/index.vue')
-			},
-			{
-				path: 'survey',
-				component: () => import('@/page/survey/index.vue')
-			},
-			{
-				path: 'trash',
-				component: () => import('@/page/trash/index.vue'),
-				meta:{
-					permission:'trash'
-				}
 			}
 		]
 	}
 ]
 
+export const dynamicRoutes: RouteRecordRaw[] = [
+	{
+		path: 'survey',
+		component: () => import('@/page/survey/index.vue'),
+		meta: {
+			permission: 'survey'
+		}
+	},
+	{
+		path: 'trash',
+		component: () => import('@/page/trash/index.vue'),
+		meta: {
+			permission: 'trash'
+		}
+	}
+]
+
 const router = createRouter({
 	history: createWebHistory(),
-	routes: routes,
+	routes: staticRoutes,
 	scrollBehavior: () => ({ left: 0, top: 0 })
 })
-
 
 export { router }

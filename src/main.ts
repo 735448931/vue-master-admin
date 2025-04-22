@@ -8,7 +8,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import '@/constant/iconfont.js'
 import Icon from '@/components/Icon.vue'
 
-import router from './router'
+import { router } from './router'
 
 import pinia from './store/index.ts'
 

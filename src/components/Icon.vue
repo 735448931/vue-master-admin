@@ -1,18 +1,22 @@
 <template>
-	<svg class="icon" aria-hidden="true" :style="{ 
-      width: iconSize, 
-      height: iconSize 
-    }">
+	<svg
+		class="icon"
+		aria-hidden="true"
+		:style="{
+			width: iconSize,
+			height: iconSize
+		}"
+	>
 		<use :xlink:href="iconName" :fill="color" />
 	</svg>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 interface IconProps {
 	name: string
-	color: string
-	size:string | number
+	color?: string
+	size?: string | number
 }
 
 const props = defineProps<IconProps>()
@@ -23,12 +27,12 @@ const iconName = computed(() => {
 
 // 处理尺寸格式
 const iconSize = computed(() => {
-  if (typeof props.size === 'number') {
-    return `${props.size}px`;
-  }
-  return props.size
-});
-
+	if (!props.size) return '16px'
+	if (typeof props.size === 'number') {
+		return `${props.size}px`
+	}
+	return props.size
+})
 </script>
 <style scoped>
 .icon {

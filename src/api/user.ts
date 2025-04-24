@@ -29,4 +29,15 @@ type CreateUser = Omit<User, '_id' | 'createdAt' | 'updatedAt'>
 // 更新用户
 type UpdateUser = Partial<CreateUser>
 
-export const loginApi = async () => {}
+// 登录接口返回
+interface LoginResponse {
+	user: User
+	token: string
+	permission: Array<string>
+}
+
+// 登录接口
+export const loginApi = (userInfo: Pick<User,'username' | 'password'>) => {
+	return request.post<LoginResponse>('/api/login', userInfo)
+}
+

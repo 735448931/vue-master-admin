@@ -23,6 +23,20 @@ export const staticRoutes: RouteRecordRaw[] = [
 
 export const dynamicRoutes: RouteRecordRaw[] = [
 	{
+		path: 'role',
+		component: () => import('@/page/role/index.vue'),
+		meta: {
+			permission: 'role'
+		}
+	},
+	{
+		path: 'department',
+		component: () => import('@/page/department/index.vue'),
+		meta: {
+			permission: 'department'
+		}
+	},
+	{
 		path: 'survey',
 		component: () => import('@/page/survey/index.vue'),
 		meta: {

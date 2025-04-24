@@ -3,6 +3,7 @@ import { dynamicRoutes } from '@/router/index.ts'
 import type { RouteRecordRaw } from 'vue-router'
 
 interface UserStore {
+	username:string
 	isAuthLoaded: boolean
 	permissions: string[]
 	isDynamicRoutesAdded: boolean
@@ -11,6 +12,7 @@ interface UserStore {
 const useUserStore = defineStore('user', {
 	state: (): UserStore => {
 		return {
+			username:'',
 			isAuthLoaded: false,
 			permissions: [],
 			isDynamicRoutesAdded: false
@@ -31,6 +33,13 @@ const useUserStore = defineStore('user', {
 		},
 		setDynamicRoutes() {
 			this.isDynamicRoutesAdded = true
+		},
+
+		logout() {
+			this.username = ''
+			this.isAuthLoaded = false
+			this.permissions = []
+			this.isDynamicRoutesAdded = false
 		}
 	}
 })

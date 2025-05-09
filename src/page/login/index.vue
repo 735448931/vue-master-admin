@@ -12,7 +12,6 @@
           <el-input
             v-model="form.username"
             placeholder="请输入用户名"
-            prefix-icon="User"
           />
         </el-form-item>
         
@@ -21,7 +20,6 @@
             v-model="form.password"
             type="password"
             placeholder="请输入密码"
-            prefix-icon="Lock"
             show-password
           />
         </el-form-item>
